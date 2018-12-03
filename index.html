@@ -8,14 +8,9 @@
 </head>
 <body role="document">
 	<div class="container-fluid">
-		<div class="container">
-			<div id="sampleAffixWrap">
-				<div id="sampleAffix" class="btn-group btn-group-justified" role="group" data-spy="affix" data-offset-top="270">
-					<a href="#" class="btn btn-default" role="button">上へ</a>
-				</div>
-			</div>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+	<div class="container">
+			
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -28,7 +23,49 @@
     </ul>
   </div>
 </nav>
+	
+<p id="page-top"><a href="#">PAGE TOP</a></p>
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 80%;
+}
+ 
+#page-top a {
+    display: block;
+    background: #666;
+    color: #fff;
+    width: 100px;
+    padding: 25px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+}
+ 
+#page-top a:hover {
+    background: #999;
+    text-decoration: none;
+}
 		
+$(function () {
+    var topBtn = $('#page-top');
+    topBtn.hide();
+    //スクロールが500に達したらボタン表示
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 500) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
       <table class="table table-striped">
     <thead>
       <tr>
