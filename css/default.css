@@ -1,9 +1,0 @@
-#AffixWrap {
-	height: 64px;
-}
-#AffixPractice {
-	width: 480px;
-}
-#AffixPractice.affix {
-	top: 0px;
-}
